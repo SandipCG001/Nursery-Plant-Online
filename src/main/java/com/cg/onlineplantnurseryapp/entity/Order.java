@@ -31,8 +31,7 @@ public class Order{
 	@Column(name = "order_date")
 	private Date orderDate;
 	
-	@Column(name = "prepare_time")
-	private Long prepTime;
+	
 
 	public Order() {
 		super();
@@ -40,26 +39,17 @@ public class Order{
 	
 	
 
-	public Order(String orderId, Long customerId, double amount, String status, Date orderDate, Long prepTime) {
+	public Order(String orderId, Long customerId, double amount, String status, Date orderDate) {
 		super();
 		this.orderId = orderId;
 		this.customerId = customerId;
 		this.amount = amount;
 		this.status = status;
 		this.orderDate = orderDate;
-		this.prepTime = prepTime;
+	
 	}
 
 
-
-	public Long getPrepTime() {
-		return prepTime;
-	}
-
-
-	public void setPrepTime(Long prepTime) {
-		this.prepTime = prepTime;
-	}
 
 
 	public String getOrderId() {
@@ -108,7 +98,7 @@ public class Order{
 	@Override
 	public String toString() {
 		return "Order [orderId=" + orderId + ", customerId=" + customerId + ", amount=" + amount + ", status=" + status
-				+ ", orderDate=" + orderDate + ", prepTime=" + prepTime + "]";
+				+ ", orderDate=" + orderDate +  "]";
 	}
 
 	
