@@ -19,14 +19,23 @@ public class OrderDetails{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long orderDetailsId;
 	
-	@Column(name = "item_id")
-	private Long itemId;
+	@Column(name = "plant_id")
+	private Long plantId;
 	
-	@Column(name = "item_name", nullable = false)
-	private String itemName;
+	@Column(name = "plant_name", nullable = false)
+	private String plantName;
 	
-	@Column(name = "unit_price", nullable = false)
-	private double itemPrice;
+	@Column(name = "plant_price", nullable = false)
+	private double plantPrice;
+	
+	@Column(name = "seed_id")
+	private Long seedId;
+	
+	@Column(name = "seed_name", nullable = false)
+	private String seedName;
+	
+	@Column(name = "seed_price", nullable = false)
+	private double seedPrice;
 	
 	@Column(name = "quantity")
 	private long quantity;
@@ -34,8 +43,8 @@ public class OrderDetails{
 	@Column(name = "total_price")
 	private double totalPrice;
 	
-	@Column(name = "vendor_id")
-	private Long vendorId;
+	@Column(name = "admin_id")
+	private Long adminId;
 	
 	@Column(name = "status")
 	private String status;
@@ -51,26 +60,53 @@ public class OrderDetails{
 		super();
 	}
 
-	public OrderDetails(Long itemId, String itemName, double itemPrice, long quantity, double totalPrice, Long vendorId,
+	public OrderDetails(Long plantId, String plantName, double plantPrice,Long seedId, String seedName, double seedPrice, long quantity, double totalPrice, Long adminId,
 			String status, String comments) {
 		super();
-		this.itemId = itemId;
-		this.itemName = itemName;
-		this.itemPrice = itemPrice;
-		this.quantity = quantity;
-		this.totalPrice = totalPrice;
-		this.vendorId = vendorId;
-		this.status = status;
+		this.plantId = plantId;
+		this.plantName = plantName;
+		this.plantPrice = plantPrice;
+		this.seedId = seedId;
+		this.seedName = seedName;
+		this.seedPrice = seedPrice;
+		this.quantity=quantity;
+		this.totalPrice=totalPrice;
+		this.adminId=adminId;
+		this.status=status;
 		this.comments = comments;
 	}
 
-	public Long getVendorId() {
-		return vendorId;
+	public Long getPlantId() {
+		return plantId;
+	}
+
+	public void setPlantId(Long plantId) {
+		this.plantId = plantId;
+	}
+
+	public String getSeedName() {
+		return seedName;
+	}
+
+	public void setSeedName(String seedName) {
+		this.seedName = seedName;
+	}
+
+	public double getSeedPrice() {
+		return seedPrice;
+	}
+
+	public void setSeedPrice(double seedPrice) {
+		this.seedPrice = seedPrice;
+	}
+
+	public Long getAdminId() {
+		return adminId;
 	}
 
 
-	public void setVendorId(Long vendorId) {
-		this.vendorId = vendorId;
+	public void setAdminId(Long adminId) {
+		this.adminId = adminId;
 	}
 
 
@@ -84,20 +120,20 @@ public class OrderDetails{
 	}
 
 
-	public String getItemName() {
-		return itemName;
+	public String getPlantName() {
+		return plantName;
 	}
 
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
+	public void setPlantName(String plantName) {
+		this.plantName = plantName;
 	}
 
-	public double getItemPrice() {
-		return itemPrice;
+	public double getPlantPrice() {
+		return plantPrice;
 	}
 
-	public void setItemPrice(double itemPrice) {
-		this.itemPrice = itemPrice;
+	public void setPlantPrice(double plantPrice) {
+		this.plantPrice = plantPrice;
 	}
 
 	public long getQuantity() {
@@ -116,12 +152,12 @@ public class OrderDetails{
 		this.totalPrice = totalPrice;
 	}
 
-	public Long getItemId() {
-		return itemId;
+	public Long getSeedId() {
+		return seedId;
 	}
 
-	public void setItemId(Long itemId) {
-		this.itemId = itemId;
+	public void setSeedId(Long seedId) {
+		this.seedId = seedId;
 	}
 
 	public Order getOrder() {
@@ -156,9 +192,10 @@ public class OrderDetails{
 
 	@Override
 	public String toString() {
-		return "OrderDetails [orderDetailsId=" + orderDetailsId + ", itemId=" + itemId + ", itemName=" + itemName
-				+ ", itemPrice=" + itemPrice + ", quantity=" + quantity + ", totalPrice=" + totalPrice + ", vendorId="
-				+ vendorId + ", status=" + status + ", comments=" + comments + ", order=" + order + "]";
+		return "OrderDetails [orderDetailsId=" + orderDetailsId + ", plantId=" + plantId + ", plantName=" + plantName
+				+ ", plantPrice=" + plantPrice + ", seedId=" + seedId + ", seedName=" + seedName
+				+ ", plantPrice=" + seedPrice +", quantity=" + quantity + ", totalPrice=" + totalPrice + ", vendorId="
+				+ adminId + ", status=" + status + ", comments=" + comments + ", order=" + order + "]";
 	}
 
 	

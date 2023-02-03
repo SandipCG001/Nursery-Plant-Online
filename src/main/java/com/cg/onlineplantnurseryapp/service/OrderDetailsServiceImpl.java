@@ -36,7 +36,7 @@ public class OrderDetailsServiceImpl implements IOrderDetailsService {
 	}
 
 	@Override
-	public ResponseEntity<?> deleteImage(String orderId) throws ResourceNotFoundException {
+	public ResponseEntity<?> deleteOrderDetails(String orderId) throws ResourceNotFoundException {
 		List<OrderDetails> orderDetails = orderDetailsRepository.findByOrder_OrderId(orderId);
 		for (OrderDetails oD : orderDetails){
 			orderDetailsRepository.delete(oD);
@@ -45,15 +45,15 @@ public class OrderDetailsServiceImpl implements IOrderDetailsService {
 	}
 
 	@Override
-	public List<OrderDetails> getOrderDetailsByVendorId(Long vendorId) {
-		return orderDetailsRepository.findByVendorId(vendorId);
+	public List<OrderDetails> getOrderDetailsByAdminId(Long adminId) {
+		return orderDetailsRepository.findByAdminId(adminId);
 	}
 
 	@Override
-	public ResponseEntity<OrderDetails> updateVendor(Long orderDetailsId, OrderDetails orderDetails)
+	public ResponseEntity<OrderDetails> updateAdmin(Long orderDetailsId, OrderDetails orderDetails)
 			throws ResourceNotFoundException {
 		 OrderDetails newOrderDetails = orderDetailsRepository.findById(orderDetailsId)
-			        .orElseThrow(() -> new ResourceNotFoundException("Vendor not found for this id :: " + orderDetailsId));
+			        .orElseThrow(() -> new ResourceNotFoundException("Admin not found for this id :: " + orderDetailsId));
 
 			        newOrderDetails.setStatus(orderDetails.getStatus());
 			        newOrderDetails.setComments(orderDetails.getComments());

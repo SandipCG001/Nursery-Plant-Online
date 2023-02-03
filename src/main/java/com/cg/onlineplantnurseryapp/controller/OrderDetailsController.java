@@ -49,23 +49,23 @@ public class OrderDetailsController {
 	
 	//delete order details by corresponding orderId
 	@DeleteMapping("/orders/{orderId}/orderdetails")
-    public ResponseEntity<?> deleteImage(@PathVariable(value = "orderId") String orderId)
+    public ResponseEntity<?> deleteOrderDetails(@PathVariable(value = "orderId") String orderId)
 	   throws ResourceNotFoundException {
-		return orderDetailsService.deleteImage(orderId);
+		return orderDetailsService.deleteOrderDetails(orderId);
 	}
 	
-	//get orderDetails by vendorId
-	@GetMapping("/orders/vendorid={vendorId}/orderdetails")
-	public List<OrderDetails> getOrderDetailsByVendorId(@PathVariable(value = "vendorId") Long vendorId)
+	//get orderDetails by adminId
+	@GetMapping("/orders/adminid={adminId}/orderdetails")
+	public List<OrderDetails> getOrderDetailsByAdminId(@PathVariable(value = "adminId") Long adminId)
 	{
-		return orderDetailsService.getOrderDetailsByVendorId(vendorId);
+		return orderDetailsService.getOrderDetailsByAdminId(adminId);
 	}
 	
 	//update orderDetails by orderId and orderDetailsId
 	@PutMapping("/orders/orderdetails/{orderDetailsId}")
-    public ResponseEntity<OrderDetails> updateVendor(@PathVariable(value = "orderDetailsId") Long orderDetailsId,
+    public ResponseEntity<OrderDetails> updateAdmin(@PathVariable(value = "orderDetailsId") Long orderDetailsId,
          @Valid @RequestBody OrderDetails orderDetails) throws ResourceNotFoundException {
-		return orderDetailsService.updateVendor(orderDetailsId, orderDetails);
+		return orderDetailsService.updateAdmin(orderDetailsId, orderDetails);
     }
 
 }
